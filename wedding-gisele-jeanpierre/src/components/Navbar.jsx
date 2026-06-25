@@ -7,7 +7,6 @@ const navLinks = [
   { label: "Family", href: "#parents" },
   { label: "Schedule", href: "#timeline" },
   { label: "Venue", href: "#venue" },
-  { label: "RSVP", href: "#rsvp" },
   { label: "Contact", href: "#contact" },
 ];
 
