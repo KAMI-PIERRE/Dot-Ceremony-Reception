@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import Parents from "./components/Parents";
 import Timeline from "./components/Timeline";
 import Venue from "./components/Venue";
+import BibleVerse from "./components/BibleVerse";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import FloatingParticles from "./components/FloatingParticles";
@@ -43,6 +44,7 @@ export default function App() {
             <Parents />
             <Timeline />
             <Venue />
+            <BibleVerse />
             <Contact />
           </main>
 
