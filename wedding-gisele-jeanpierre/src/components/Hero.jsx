@@ -70,78 +70,81 @@ export default function Hero() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=90')",
+          backgroundImage: "url('/couple-photo.jpg')",
         }}
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-overlay" />
-
-      {/* Decorative gold lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-8 left-8 w-16 h-16 border-t-2 border-l-2 border-gold/40" />
-        <div className="absolute top-8 right-8 w-16 h-16 border-t-2 border-r-2 border-gold/40" />
-        <div className="absolute bottom-8 left-8 w-16 h-16 border-b-2 border-l-2 border-gold/40" />
-        <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-gold/40" />
-      </div>
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 flex flex-col items-center">
-        {/* Pre-title */}
-        <motion.p
-          className="font-serif text-champagne tracking-[0.4em] uppercase text-xs sm:text-sm mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-        >
-          You are cordially invited to the wedding of
-        </motion.p>
-
-        {/* Gold decorative line */}
+      <div className="relative z-10 text-center px-4 sm:px-6 flex flex-col items-center justify-center min-h-screen">
+        {/* Opening quote mark */}
         <motion.div
-          className="w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-8"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-        />
-
-        {/* Names */}
-        <motion.h1
-          className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white text-shadow-lg leading-none mb-2"
-          initial={{ opacity: 0, scale: 0.9 }}
+          className="text-8xl sm:text-9xl md:text-10xl text-gold/40 font-serif mb-2"
+          initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 1, ease: "easeOut" }}
+          transition={{ delay: 0.2, duration: 0.8 }}
         >
-          Gisele
-        </motion.h1>
-
-        <motion.div
-          className="flex items-center gap-4 my-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-        >
-          <div className="w-12 h-px bg-gold/60" />
-          <span className="text-gold text-2xl">❧</span>
-          <div className="w-12 h-px bg-gold/60" />
+          "
         </motion.div>
 
-        <motion.h1
-          className="font-script text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white text-shadow-lg leading-none mb-8"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.9, duration: 1, ease: "easeOut" }}
+        {/* Bible verse text */}
+        <motion.p
+          className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-relaxed mb-6 max-w-4xl italic"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
         >
-          Jean Pierre
-        </motion.h1>
+          For this child I prayed, and the Lord has granted me my petition that I made to him
+        </motion.p>
 
-        {/* Date */}
+        {/* Bible reference */}
+        <motion.p
+          className="font-serif text-lg sm:text-xl text-rose-gold tracking-widest uppercase mb-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
+          1 Samuel 1:27
+        </motion.p>
+
+        {/* Closing quote mark */}
+        <motion.div
+          className="text-8xl sm:text-9xl md:text-10xl text-gold/40 font-serif mb-8"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
+          "
+        </motion.div>
+
+        {/* Divider */}
+        <motion.div
+          className="w-32 h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-12"
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        />
+
+        {/* Couple names */}
+        <motion.div
+          className="mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.8 }}
+        >
+          <h1 className="font-script text-5xl sm:text-6xl md:text-7xl text-white mb-1">
+            Gisele & Jean Pierre
+          </h1>
+        </motion.div>
+
+        {/* Date and location */}
         <motion.div
           className="mb-12 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.8 }}
+          transition={{ delay: 1.3, duration: 0.8 }}
         >
           <p className="font-serif text-champagne tracking-[0.3em] uppercase text-sm sm:text-base">
             05 · September · 2026
@@ -156,7 +159,7 @@ export default function Hero() {
           className="mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.8 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
         >
           <p className="font-serif text-champagne/70 tracking-[0.3em] uppercase text-xs mb-6 text-center">
             Counting down to forever
@@ -178,7 +181,7 @@ export default function Hero() {
           className="btn-primary text-sm tracking-[0.3em] relative overflow-hidden group"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
+          transition={{ delay: 1.6, duration: 0.6 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
         >
