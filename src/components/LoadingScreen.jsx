@@ -67,7 +67,7 @@ export default function LoadingScreen() {
             transition={{ delay: 0.3, duration: 0.8 }}
           >
             <h1 className="font-script text-5xl md:text-6xl text-gold">
-              Gisele & Jean Pierre
+              Gisele &  Pierre
             </h1>
             <p className="font-serif text-champagne tracking-[0.3em] uppercase text-sm">
               05 September 2026
