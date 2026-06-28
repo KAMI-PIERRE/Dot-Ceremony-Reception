@@ -7,8 +7,8 @@ export default function MusicToggle() {
   const [playing, setPlaying] = useState(true);
   const audioRef = useRef(null);
 
-  // Use the Rwandan song from the archive.org collection.
-  const AUDIO_URL = "/music/cecil-kayirebwa-tarihinda.mp3";
+  // Use the requested song file from public/music.
+  const AUDIO_URL = "/music/Umumararungu.mp3";
 
   useEffect(() => {
     audioRef.current = new Audio(AUDIO_URL);

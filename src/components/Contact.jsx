@@ -104,7 +104,7 @@ export default function Contact() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-gold/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
           className="text-center mb-14"
@@ -125,10 +125,30 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <ContactCard person={contacts.bride} delay={0} />
-          <ContactCard person={contacts.groom} delay={0.2} />
+        {/* Main layout: Couple on left, Other contacts on right */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left: Bride and Groom */}
+          <div>
+            <h3 className="font-serif text-2xl text-center text-gold mb-8">
+              Bride & Groom
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <ContactCard person={contacts.couple.bride} delay={0} />
+              <ContactCard person={contacts.couple.groom} delay={0.2} />
+            </div>
+          </div>
+
+          {/* Right: Other Contacts */}
+          <div>
+            <h3 className="font-serif text-2xl text-center text-gold mb-8">
+              Other Contacts
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {contacts.other.map((person, idx) => (
+                <ContactCard key={idx} person={person} delay={0.4 + idx * 0.1} />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Bottom note */}

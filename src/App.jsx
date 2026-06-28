@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import LoadingScreen from "./components/LoadingScreen";
+import React from "react";
+import { motion } from "framer-motion";
+import LoadingSpinner from "./components/LoadingSpinner";
 import ScrollProgress from "./components/ScrollProgress";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -14,42 +14,29 @@ import FloatingParticles from "./components/FloatingParticles";
 import MusicToggle from "./components/MusicToggle";
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3200);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <>
-      <AnimatePresence>
-        {loading && <LoadingScreen key="loading" />}
-      </AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      className="relative"
+    >
+      <LoadingSpinner />
+      <ScrollProgress />
+      <FloatingParticles />
+      <Navbar />
+      <MusicToggle />
 
-      {!loading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="relative"
-        >
-          <ScrollProgress />
-          <FloatingParticles />
-          <Navbar />
-          <MusicToggle />
+      <main>
+        <Hero />
+        <BibleVerse />
+        <Parents />
+        <Timeline />
+        <Venue />
+        <Contact />
+      </main>
 
-          <main>
-            <Hero />
-            <Parents />
-            <Timeline />
-            <Venue />
-            <Contact />
-          </main>
-
-          <Footer />
-        </motion.div>
-      )}
-    </>
+      <Footer />
+    </motion.div>
   );
 }

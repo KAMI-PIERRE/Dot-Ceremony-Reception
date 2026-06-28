@@ -3,27 +3,27 @@ import { motion } from "framer-motion";
 import { coupleInfo } from "../data/weddingData";
 import { FaHeart, FaInstagram, FaFacebook } from "react-icons/fa";
 
-// Floating hearts for footer
-const HEART_EMOJIS = ["❤️", "💕", "💖", "💗", "💓", "💝", "🌹", "🌸"];
+// Animated emojis for footer
+const ANIMATED_EMOJIS = ["❤️", "💕", "💖", "💗", "💓", "💝", "🌹", "🌸", "💐", "🎊", "🎉", "💒", "👰", "🤵"];
 
-function FloatingHeart({ emoji, x, delay, duration }) {
+function FloatingEmoji({ emoji, x, delay, duration }) {
   return (
     <motion.span
-      className="absolute text-lg pointer-events-none select-none"
-      style={{ left: `${x}%`, bottom: 0 }}
+      className="absolute pointer-events-none select-none"
+      style={{ left: `${x}%`, top: -50 }}
       animate={{
-        y: [0, -200],
+        y: [0, 800],
         opacity: [0, 1, 1, 0],
-        rotate: [0, 20, -20, 0],
+        rotate: [0, 15, -15, 0],
       }}
       transition={{
         duration,
         delay,
         repeat: Infinity,
-        ease: "easeOut",
+        ease: "linear",
       }}
     >
-      {emoji}
+      <span className="text-2xl md:text-3xl">{emoji}</span>
     </motion.span>
   );
 }
@@ -37,14 +37,14 @@ const navLinks = [
 ];
 
 export default function Footer() {
-  const hearts = useMemo(
+  const emojis = useMemo(
     () =>
-      Array.from({ length: 12 }, (_, i) => ({
+      Array.from({ length: 8 }, (_, i) => ({
         id: i,
-        emoji: HEART_EMOJIS[i % HEART_EMOJIS.length],
-        x: (i / 12) * 100,
-        delay: i * 1.1,
-        duration: 4 + (i % 4),
+        emoji: ANIMATED_EMOJIS[i % ANIMATED_EMOJIS.length],
+        x: (i / 8) * 100,
+        delay: i * 1.2,
+        duration: 8 + (i % 3),
       })),
     []
   );
@@ -54,14 +54,22 @@ export default function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden py-24 bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/couple-photo.jpg.jpeg')" }}
+      className="relative overflow-hidden py-24 bg-gradient-to-b from-champagne/5 to-rose-gold/10"
     >
-      <div className="absolute inset-0 bg-black/85" />
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-black/20 to-black/95" />
+      {/* Animated emoji background */}
+      {emojis.map((item) => (
+        <FloatingEmoji
+          key={item.id}
+          emoji={item.emoji}
+          x={item.x}
+          delay={item.delay}
+          duration={item.duration}
+        />
+      ))}
+
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="relative rounded-[2rem] border border-white/10 bg-black/30 backdrop-blur-xl shadow-2xl p-10 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/70" />
+        <div className="relative rounded-[2rem] border border-gold/30 bg-white/80 backdrop-blur-sm shadow-2xl p-10 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-rose-gold/5" />
           <div className="relative z-10">
             <motion.div
               className="text-center mb-10"
@@ -70,13 +78,22 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="mx-auto mb-8 w-28 h-28 rounded-full bg-white/10 border border-white/20 shadow-2xl flex items-center justify-center text-5xl text-gold">
-                💍
+              <div className="mx-auto mb-8 flex justify-center gap-3">
+                {['💕', '💒', '💕', '💐', '💕', '💒', '💕'].map((e, i) => (
+                  <motion.span
+                    key={i}
+                    className="text-4xl"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ duration: 2, delay: i * 0.1, repeat: Infinity }}
+                  >
+                    {e}
+                  </motion.span>
+                ))}
               </div>
               <h2 className="font-script text-5xl md:text-6xl text-gold mb-2">
-                Gisele & Jean Pierre
+                Gisele & Pierre
               </h2>
-              <p className="font-serif text-champagne/60 tracking-[0.3em] uppercase text-xs">
+              <p className="font-serif text-gray-600 tracking-[0.3em] uppercase text-xs">
                 05 September 2026 · Kigali, Rwanda
               </p>
             </motion.div>
@@ -92,14 +109,14 @@ export default function Footer() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="font-serif text-xs tracking-[0.35em] uppercase text-champagne/50 hover:text-gold transition-colors"
+                  className="font-serif text-xs tracking-[0.35em] uppercase text-gray-600 hover:text-gold transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
             </motion.div>
 
-            <div className="w-full h-px bg-white/10 mb-10" />
+            <div className="w-full h-px bg-gold/20 mb-10" />
 
             <motion.div
               className="text-center mb-10"
@@ -111,28 +128,28 @@ export default function Footer() {
               <p className="font-script text-3xl md:text-4xl text-gold mb-3">
                 Thank you for celebrating with us
               </p>
-              <p className="font-serif text-champagne/60 text-sm max-w-2xl mx-auto">
+              <p className="font-serif text-gray-600 text-sm max-w-2xl mx-auto">
                 Your presence is the greatest gift we could receive. We are honored to share this special day with family and friends.
               </p>
             </motion.div>
 
             <motion.div
-              className="flex justify-center gap-3 mb-10"
-              animate={{ scale: [1, 1.03, 1] }}
+              className="flex justify-center gap-2 mb-10 flex-wrap"
+              animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
-              {['🌹', '❤️', '💍', '❤️', '🌹'].map((e, i) => (
-                <span key={i} className="text-xl">
+              {['❤️', '💕', '🌹', '💒', '💐', '🎉', '💖', '🌸', '💓', '🎊', '💝', '👰'].map((e, i) => (
+                <motion.span key={i} className="text-2xl" animate={{ y: [0, -8, 0] }} transition={{ duration: 2, delay: i * 0.1, repeat: Infinity }}>
                   {e}
-                </span>
+                </motion.span>
               ))}
             </motion.div>
 
-            <div className="w-full h-px bg-white/10 mb-8" />
+            <div className="w-full h-px bg-gold/20 mb-8" />
 
             <div className="text-center">
-              <p className="font-serif text-champagne/30 text-xs tracking-[0.35em]">
-                © {new Date().getFullYear()} Gisele & Jean Pierre · Made with <FaHeart className="inline text-rose-gold text-xs" /> in Rwanda
+              <p className="font-serif text-gray-600 text-xs tracking-[0.35em]">
+                © {new Date().getFullYear()} Gisele & Pierre · Made with <FaHeart className="inline text-rose-gold text-xs" /> in Rwanda
               </p>
             </div>
           </div>

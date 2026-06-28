@@ -1,12 +1,12 @@
 // ============================================================
-//  WEDDING DATA — Gisele & Jean Pierre
+//  WEDDING DATA — Gisele & Pierre
 //  Edit this file to update all content across the website
 // ============================================================
 
 export const coupleInfo = {
   bride: "Gisele",
-  groom: "Jean Pierre",
-  fullNames: "Gisele & Jean Pierre",
+  groom: "Pierre",
+  fullNames: "Gisele & Pierre",
   weddingDate: "2026-09-05T09:00:00",
   weddingDateFormatted: "05 September 2026",
   tagline: "Two souls, one love story",
@@ -20,7 +20,7 @@ export const parents = {
       title: "Father of the Bride",
     },
     mother: {
-      name: "MUKAKIBIBI Glorose",
+      name: "MUKAKIBIBI Gloriose",
       title: "Mother of the Bride",
     },
   },
@@ -118,7 +118,7 @@ export const loveStory = [
     year: "2024",
     title: "The Proposal",
     description:
-      "On a magical evening under a canopy of stars, with the gentle breeze carrying the scent of roses, Jean Pierre got down on one knee. With trembling hands and a heart full of love, he asked the most important question of his life — and Gisele said yes.",
+      "On a magical evening under a canopy of stars, with the gentle breeze carrying the scent of roses, Pierre got down on one knee. With trembling hands and a heart full of love, he asked the most important question of his life — and Gisele said yes.",
     emoji: "💍",
   },
   {
@@ -126,7 +126,7 @@ export const loveStory = [
     year: "2026",
     title: "Forever Begins",
     description:
-      "After a journey filled with love, laughter, and unforgettable moments, Gisele and Jean Pierre are ready to begin the greatest adventure of all — a lifetime together. We invite you to witness and celebrate the start of their forever.",
+      "After a journey filled with love, laughter, and unforgettable moments, Gisele and Pierre are ready to begin the greatest adventure of all — a lifetime together. We invite you to witness and celebrate the start of their forever.",
     emoji: "🥂",
   },
 ];
@@ -183,16 +183,32 @@ export const galleryImages = [
 ];
 
 export const contacts = {
-  bride: {
-    name: "Diane",
-    role: "Bride's Contact",
-    phone: "0784582199",
-    emoji: "👰",
+  couple: {
+    bride: {
+      name: "Gisele",
+      role: "Bride",
+      phone: "0784582188",
+      emoji: "👰",
+    },
+    groom: {
+      name: "Pierre",
+      role: "Groom",
+      phone: "+260974062920",
+      emoji: "🤵",
+    },
   },
-  groom: {
-    name: "Gaudence",
-    role: "Groom's Contact",
-    phone: "0787247885",
-    emoji: "🤵",
-  },
+  other: [
+    {
+      name: "Diane",
+      role: "Bride's Contact",
+      phone: "0784582199",
+      emoji: "👰",
+    },
+    {
+      name: "Gaudence",
+      role: "Groom's Contact",
+      phone: "0787247885",
+      emoji: "🤵",
+    },
+  ],
 };

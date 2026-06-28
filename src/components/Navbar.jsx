@@ -87,7 +87,7 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
           >
             <div className="font-script text-4xl text-rose-gold mb-6">
-              Gisele & Jean Pierre
+              Gisele & Pierre
             </div>
             {navLinks.map((link, i) => (
               <motion.button
