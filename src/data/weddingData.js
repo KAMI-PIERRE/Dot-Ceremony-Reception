@@ -207,7 +207,7 @@ export const contacts = {
     {
       name: "Gaudence",
       role: "Groom's Contact",
-      phone: "0787247885",
+      phone: "+250 728 113 318",
       emoji: "🤵",
     },
   ],
