@@ -7,6 +7,25 @@ import { MdEmail } from "react-icons/md";
 function ContactCard({ person, delay }) {
   const isBride = person.role.includes("Bride");
 
+  const formatWhatsAppNumber = (phone) => {
+    const cleaned = phone.replace(/\D/g, "");
+    if (cleaned.startsWith("00")) {
+      return cleaned.slice(2);
+    }
+    if (cleaned.startsWith("0")) {
+      return `250${cleaned.slice(1)}`;
+    }
+    if (cleaned.startsWith("250")) {
+      return cleaned;
+    }
+    if (cleaned.startsWith("7") || cleaned.startsWith("8")) {
+      return `250${cleaned}`;
+    }
+    return cleaned;
+  };
+
+  const whatsAppNumber = formatWhatsAppNumber(person.phone);
+
   return (
     <motion.div
       className="group relative bg-white border border-champagne p-8 md:p-10 text-center shadow-md hover:shadow-xl transition-all duration-400 overflow-hidden"
@@ -80,7 +99,7 @@ function ContactCard({ person, delay }) {
 
       {/* WhatsApp button */}
       <motion.a
-        href={`https://wa.me/250${person.phone.replace(/^0/, "")}`}
+        href={`https://api.whatsapp.com/send?phone=${whatsAppNumber}`}
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2 w-full py-3 font-serif text-sm tracking-widest uppercase border border-green-500/40 text-green-600 hover:bg-green-500 hover:text-white transition-all duration-300"
