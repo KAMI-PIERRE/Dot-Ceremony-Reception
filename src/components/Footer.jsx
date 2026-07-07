@@ -149,7 +149,15 @@ export default function Footer() {
 
             <div className="text-center">
               <p className="font-serif text-gray-600 text-xs tracking-[0.35em]">
-                © {new Date().getFullYear()} Gisele & Pierre · Made with <FaHeart className="inline text-rose-gold text-xs" /> in Rwanda
+                © {new Date().getFullYear()} Gisele & Pierre · empowered by{' '}
+                <a
+                  href="https://santechinnovate.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gold underline hover:text-rose-gold"
+                >
+                  SAN TECH
+                </a>
               </p>
             </div>
           </div>

@@ -33,9 +33,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <p className="text-xs sm:text-sm uppercase tracking-[0.35em] text-champagne/90 mb-3">
-            The wedding of
-          </p>
           <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl text-white leading-tight font-semibold mx-auto drop-shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
             {coupleInfo.fullNames}
           </h1>

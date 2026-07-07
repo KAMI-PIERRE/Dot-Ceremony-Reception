@@ -42,9 +42,9 @@ export default function Navbar() {
             {/* Logo */}
             <button
               onClick={() => handleNavClick("#hero")}
-              className="font-script text-2xl text-rose-gold hover:text-gold transition-colors"
+              className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.2em] text-gold hover:text-rose-gold transition-colors"
             >
-              G & JP
+              Official Invitation
             </button>
 
             {/* Desktop links */}
@@ -86,8 +86,8 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="font-script text-4xl text-rose-gold mb-6">
-              Gisele & Pierre
+            <div className="font-serif text-4xl text-gold uppercase tracking-[0.15em] mb-6">
+              Official Invitation
             </div>
             {navLinks.map((link, i) => (
               <motion.button
